@@ -1,0 +1,115 @@
+/* General styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  max-height: 100%;
+  max-width: 100%;
+}
+/* Title */
+.title {
+  text-align: center;
+  margin: .8rem 0;
+}
+
+/* Moves and Reset */
+.moves-reset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin-bottom: .8rem;
+}
+
+/*Game Board */
+.game-board {
+  background: #355c7d;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #355c7d, #6c5b7b, #c06c84);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left bottom, left top, from(#355c7d), color-stop(#6c5b7b), to(#c06c84));
+  background: -webkit-linear-gradient(bottom, #355c7d, #6c5b7b, #c06c84);
+  background: -o-linear-gradient(bottom, #355c7d, #6c5b7b, #c06c84);
+  background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 10px 10px 13px -1px rgba(48, 48, 48, 0.64);
+  -webkit-box-shadow: 10px 10px 13px -1px rgba(48, 48, 48, 0.64);
+  -moz-box-shadow: 10px 10px 13px -1px rgba(48, 48, 48, 0.64);
+  max-width: 90%;
+  margin: 0 auto;
+  height: 75vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* -webkit-box-orient: horizontal; */
+  /* -webkit-box-direction: normal; */
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  /* -webkit-box-pack: justify;
+      -ms-flex-pack: justify; */
+  justify-content: space-between;
+  padding: .2rem;
+}
+
+.game-board,
+.card {
+  border-radius: 10px;
+}
+
+.card {
+  background: #303030;
+  height: 22%;
+  width: 22%;
+  margin: auto;
+}
+
+/* Media Queries */
+
+/* XL phones */
+@media (min-width: 375px) and (max-width: 567px) {
+  .game-board {
+    max-height: 55vh;
+  }
+}
+
+/* Medium */
+
+@media (min-width: 568px) {
+  .title {
+    font-size: 3rem;
+  }
+  .moves-reset {
+    margin: 0 auto;
+    font-size: 1.8rem;
+  }
+  .moves-reset,
+  .game-board {
+    max-width: 50%;
+  }
+  .game-board {
+    max-width: 80%;
+    margin: 1rem auto;
+    min-height: 75%;
+  }
+}
+
+/* Large */
+
+@media (min-width: 1200px) {
+  .moves-reset,
+  .game-board {
+    max-width: 50%;
+    margin: 2rem auto;
+  }
+  .game-board {
+    max-width: 40%;
+    margin: 1rem auto;
+    max-height: 75vh;
+  }
+}
