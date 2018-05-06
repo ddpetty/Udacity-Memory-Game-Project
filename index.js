@@ -19,16 +19,16 @@ window.onload = () => {
 	let cards = document.querySelectorAll('.card'),
 		matches = 0,
 		selectedCard = [],
-		cardIsFlipped = false;
-		symbols = ['<i class="fas fa-coffee"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-user-secret"></i>'];
+		cardIsFlipped = false,
+	symbols = ['<i class="fas fa-coffee"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-user-secret"></i>'];
 
-		// Checks if card doesn't have class, adds is-flipped class, then flips it back over after 4 secs.
+	// Checks if card doesn't have class, adds is-flipped class, then flips it back over after 4 secs.
 	cards.forEach((card) => {
 		if (!card.classList.contains('is-flipped')) {
 			//console.log(card);
 			card.addEventListener('click', () => {
 				card.classList.add('is-flipped');
-				cardIsFlipped = true; 
+				cardIsFlipped = true;
 				setTimeout(() => {
 					card.classList.remove('is-flipped');
 					cardIsFlipped = false;
@@ -37,28 +37,28 @@ window.onload = () => {
 		}
 	});
 
-	 //Looping through symbols array
+	//Looping through symbols array
 	for (let i = 0; i < 8; i++) {
-    // Randomly pick one from the array of faces
-    let randomIndex = Math.floor(Math.random(symbols.length));
-    let symbol = symbols[randomIndex];
-    // Push 2 copies onto array
-    selectedCard.push(symbol);
-    selectedCard.push(symbol);
-    // Remove from symbols array so user doesn't re-pick
-    symbols.splice(randomIndex, 1);
-}
+		// Randomly pick one from the array of faces
+		let randomIndex = Math.floor(Math.random(symbols.length));
+		let symbol = symbols[randomIndex];
+		// Push 2 copies onto array
+		selectedCard.push(symbol);
+		selectedCard.push(symbol);
+		// Remove from symbols array so user doesn't re-pick
+		symbols.splice(randomIndex, 1);
+	}
 
-// Shuffles the selectedCard array | courtesy of StackOverflow
-function shuffleArray(a) {
-	for (let i = a.length - 1; i > 0; i--) {
+	// Shuffles the selectedCard array | courtesy of StackOverflow
+	function shuffleArray(a) {
+		for (let i = a.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
 	}
-	return a;
-}
-shuffleArray(selectedCard);
+	shuffleArray(selectedCard);
 
-//Need to append symbols to cards
+	//Need to append symbols to cards
 
 }
