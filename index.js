@@ -11,9 +11,9 @@
 
 window.onload = () => {
 
-	let cardBacks = document.getElementsByClassName('.back'),
-	cards = document.querySelectorAll('.card'),
-	cardFlipped,
+	let cardBacks = document.getElementsByClassName('back'),
+		cards = document.querySelectorAll('.card'),
+		cardFlipped,
 		cardImages = ['<i class="fas fa-coffee"></i>', '<i class="fas fa-coffee"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-user-secret"></i>', '<i class="fas fa-user-secret"></i>'],
 		resetButton = document.querySelector('.reset'),
 		numCardsFlipped = 0;
@@ -34,13 +34,13 @@ window.onload = () => {
 	}
 	shuffleCards(cardImages);
 
-	//Loop over cardImages and output to back of cards
-	cardImages.forEach((cardImage) => {
-    cardBacks.innerHTML = cardImage;
-	console.log(cardBacks.innerHTML);
-
-	});
-
+	// Loop over cardImages and output to back of cards
+	for (let i=0; i<cardBacks.length; i++) {
+		let iconDivs = document.createElement('div');
+		iconDivs.innerHTML = cardImages[i];
+		 
+		 cardBacks[i].appendChild(iconDivs);
+	}
 	let resetGame = () => {
 		let resetBtn = document.querySelector('.reset');
 		resetButton.addEventListener('click', newGame());

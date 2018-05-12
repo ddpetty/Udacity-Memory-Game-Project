@@ -6,7 +6,7 @@ HTML, CSS, and JavaScript
 
 ## Screenshots
 
-![screenshot.png](https://raw.githubusercontent.com/ddpetty/Udacity-Memory-Game-Project/master/./images/screenshot.png)
+git 
 
 ## License
 This project is licensed under the MIT License
