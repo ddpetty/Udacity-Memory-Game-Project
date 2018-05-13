@@ -6,7 +6,7 @@ HTML, CSS, and JavaScript
 
 ## Screenshots
 
-git 
+![Project Screenshot](/images/screenshot.png "Project Screenshot")
 
 ## License
 This project is licensed under the MIT License

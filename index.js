@@ -13,10 +13,9 @@ window.onload = () => {
 
 	let cardBacks = document.getElementsByClassName('back'),
 		cards = document.querySelectorAll('.card'),
-		cardFlipped,
 		cardImages = ['<i class="fas fa-coffee"></i>', '<i class="fas fa-coffee"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code-branch"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-code"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-window-close"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-file-code"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-terminal"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-qrcode"></i>', '<i class="fas fa-user-secret"></i>', '<i class="fas fa-user-secret"></i>'],
 		resetButton = document.querySelector('.reset'),
-		numCardsFlipped = 0;
+		numCardFlips = [];
 
 	// Shuffle function is from http://stackoverflow.com/a/2450976
 	let shuffleCards = (array) => {
@@ -34,38 +33,48 @@ window.onload = () => {
 	}
 	shuffleCards(cardImages);
 
-	// Loop over cardImages and output to back of cards
-	for (let i=0; i<cardBacks.length; i++) {
-		let iconDivs = document.createElement('div');
-		iconDivs.innerHTML = cardImages[i];
-		 
-		 cardBacks[i].appendChild(iconDivs);
+	let startGame = () => {
+		//shuffleCards(cardImages);
+		// Loop over cardImages and output to back of cards
+		// for (let i=0; i < cardBacks.length; i++) {
+		// 	let iconDivs = document.createElement('div');
+		// 	iconDivs.classList.add('card-icons');
+		// 	iconDivs.innerHTML = cardImages[i];
+		// 	cardBacks[i].appendChild(iconDivs);
+		// }
+		//flipCard();
+
 	}
+
+	// Loop over cardImages and output to back of cards
+	for (let i = 0; i < cardBacks.length; i++) {
+		let iconDivs = document.createElement('div');
+		iconDivs.classList.add('card-icons');
+		iconDivs.innerHTML = cardImages[i];
+		cardBacks[i].appendChild(iconDivs);
+	}
+
 	let resetGame = () => {
 		let resetBtn = document.querySelector('.reset');
-		resetButton.addEventListener('click', newGame());
+		resetButton.addEventListener('click', startGame());
 	}
 
-	let newGame = () => {
-		numCardsFlipped = 0;
-		let cardOutput = '';
-
-	}
-	// Checks if card doesn't have class, adds is-flipped class, then flips it back over after 4 sec.
-	let flipCard = () => {
-		cards.forEach((card) => {
-			if (!card.classList.contains('is-flipped')) {
-				card.addEventListener('click', function (e) {
-					card.classList.add('is-flipped');
-					cardFlipped = true;
-					// setTimeout(() => {
-					// 	card.classList.remove('is-flipped');
-					// 	cardIsFlipped = false;
-					// }, 4000);
-				});
+	// Add event listener to cards
+	cards.forEach(function (card) {
+		card.addEventListener('click', function (event) {
+			// The event target is flipped
+			let flipped = event.target;
+			//counts flips
+			let count = 0;
+			if (numCardFlips.length < 2) {
+				count++;
+				card.classList.add('is-flipped');
 			}
+			numCardFlips.push(count); //numCardFlips = [];
+			
+			//Have to track to see if flipped cards match
+			// Reset it after the cards are evaluated, allowing for the cards to be selected again or not
+			//Repeat process until cards.length is reached
 		});
-	}
-	flipCard();
-
-}
+	});
+} // end window.onload()

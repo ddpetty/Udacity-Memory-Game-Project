@@ -44,7 +44,7 @@ body {
   -moz-box-shadow: 10px 10px 13px -1px rgba(48, 48, 48, 0.64);
   max-width: 90%;
   margin: 0 auto;
-  height: 75vh;
+  height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,10 +88,26 @@ body {
 } 
 
 .side.back{
-  background:red;
+  background: #529178;
   transform: rotateY( 180deg );
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
+}
+
+
+/* Elements rendered by JS */
+.card-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card-icons > .fas  {
+  color: white;
+  font-size: 2.5rem;
 }
