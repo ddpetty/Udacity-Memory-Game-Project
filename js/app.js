@@ -1,17 +1,17 @@
 window.onload = () => {
+	const 	resetButton = document.querySelector('.restart'),
+	starOne = document.querySelector('#star1'),
+	starTwo = document.querySelector('#star2'),
+	starThree = document.querySelector('#star3'),
+	starsNumber = document.querySelector('.stars-number'),
+	moves = document.querySelector('.moves'),
+	modal = document.querySelector('.modal'),
+	modalClose = document.querySelector('.close-button'),
+	playAgainBtn = document.querySelector('button');
 
 	let cards = document.querySelectorAll('.card'),
 		deck = document.querySelector('.deck'),
 		everyCard = [...cards],
-		resetButton = document.querySelector('.restart'),
-		starOne = document.querySelector('#star1'),
-		starTwo = document.querySelector('#star2'),
-		starThree = document.querySelector('#star3'),
-		starsNumber = document.querySelector('.stars-number'),
-		moves = document.querySelector('.moves'),
-		modal = document.querySelector('.modal'),
-		modalClose = document.querySelector('.close-button'),
-		playAgainBtn = document.querySelector('button'),
 		shownCards = [],
 		trackGuesses = [],
 		count = 0,
@@ -24,10 +24,12 @@ window.onload = () => {
 	resetButton.addEventListener('click', resetGame);
 	//Function that resets game
 	function resetGame() {
-		clearTimeout(timeCount);
-		startGame();
 		timer = 0;
-		starsNumber = 3;
+		count = 0;
+		starsNum = 3;
+		clearTimeout(timeCount);
+		shownCards = [];
+		trackGuesses = [];
 		document.querySelector('.timer').innerHTML = 0;
 		numMoves = 0;
 		matchesTotal = 0;
@@ -35,12 +37,13 @@ window.onload = () => {
 		starOne.style.display = "block";
 		starTwo.style.display = "block";
 		starThree.style.display = "block";
-		// console.log('shuffle done!');
+		startGame();
 	}
 	//Let the games begin!
 	startGame();
 	//Function that starts the game
 	function startGame() {
+		starsNum = 3;
 		startTimer();
 		closeModal();
 		let shuffledCards = shuffle(everyCard);
